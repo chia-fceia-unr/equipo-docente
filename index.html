@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equipo docente — Herramientas de Inteligencia Artificial · FCEIA-UNR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Respaldo si el <head> se pierde al pegar en el editor de Moodle */
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+  :root{
+    --navy:#15246E;
+    --azul:#2173A6;
+    --verde:#1FBF92;
+    --azul-claro:#84B1D9;
+    --verde-palido:#C6D9B8;
+    --fondo:#F6F9FC;
+    --muted:#6B7A93;
+    --faint:#9AA8BC;
+    --linea:#DCE5EF;
+    --font-head:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-body:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+
+  /* Alcance acotado con .fceia-equipo para no chocar con los estilos de Moodle */
+  .fceia-equipo *{ box-sizing:border-box; margin:0; padding:0; }
+
+  .fceia-equipo{
+    font-family:var(--font-body);
+    color:var(--navy);
+    background:var(--fondo);
+    line-height:1.5;
+    border-radius:16px;
+    overflow:hidden;
+  }
+
+  /* ---------- HERO ---------- */
+  .fceia-equipo .hero{
+    position:relative;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--azul) 100%);
+    color:#fff;
+    text-align:center;
+    padding:64px 24px 72px;
+    overflow:hidden;
+  }
+  .fceia-equipo .hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:5px;
+    background:linear-gradient(90deg, var(--verde), var(--azul-claro), var(--verde-palido));
+  }
+  .fceia-equipo .hero .kicker{
+    display:inline-block;
+    font-family:var(--font-head);
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--verde-palido);
+    margin-bottom:16px;
+  }
+  .fceia-equipo .hero h1{
+    font-family:var(--font-head);
+    font-size:clamp(1.8rem, 4.5vw, 2.9rem);
+    font-weight:700;
+    letter-spacing:-.02em;
+    line-height:1.15;
+  }
+  .fceia-equipo .hero p.sub{
+    max-width:640px;
+    margin:16px auto 0;
+    font-size:clamp(1rem, 2.2vw, 1.15rem);
+    color:var(--azul-claro);
+  }
+
+  /* ---------- GRILLA DE DOCENTES ---------- */
+  .fceia-equipo .equipo{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    max-width:1000px;
+    margin:0 auto;
+    padding:56px 24px 64px;
+  }
+  /* Cuarta tarjeta (Valen) centrada debajo de la fila superior */
+  .fceia-equipo .card:nth-child(4){ grid-column:2; }
+  @media (max-width:760px){
+    .fceia-equipo .equipo{ grid-template-columns:1fr; max-width:420px; padding:40px 24px 48px; }
+    .fceia-equipo .card:nth-child(4){ grid-column:auto; }
+  }
+
+  .fceia-equipo .card{
+    background:#fff;
+    border:1px solid var(--linea);
+    border-radius:16px;
+    padding:32px 22px 28px;
+    text-align:center;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .fceia-equipo .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(21,36,110,.10);
+  }
+
+  .fceia-equipo .foto{
+    width:132px; height:132px;
+    border-radius:50%;
+    margin:0 auto 18px;
+    object-fit:cover;
+    display:block;
+    border:4px solid #fff;
+    box-shadow:0 0 0 3px var(--verde);
+    background:var(--verde-palido);
+  }
+
+  .fceia-equipo .card h3{
+    font-family:var(--font-head);
+    font-size:1.2rem;
+    font-weight:600;
+    letter-spacing:-.01em;
+    color:var(--navy);
+  }
+  .fceia-equipo .card .mail{
+    display:inline-block;
+    margin:8px 0 14px;
+    font-family:var(--font-body);
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--azul);
+    text-decoration:none;
+    overflow-wrap:anywhere;
+    max-width:100%;
+  }
+  .fceia-equipo .card .mail:hover{ text-decoration:underline; }
+  .fceia-equipo .card p.bio{
+    font-size:.95rem;
+    color:var(--muted);
+    line-height:1.55;
+  }
+
+  /* ---------- PIE ---------- */
+  .fceia-equipo .pie{
+    text-align:center;
+    padding:22px 24px 34px;
+    font-size:.82rem;
+    color:var(--faint);
+    border-top:1px solid var(--linea);
+  }
+</style>
+</head>
+<body>
+
+<div class="fceia-equipo">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <span class="kicker">FCEIA · UNR</span>
+    <h1>Herramientas de Inteligencia Artificial</h1>
+    <p class="sub">Conocé al equipo docente que te va a acompañar durante la cursada.</p>
+  </header>
+
+  <!-- ============ EQUIPO ============ -->
+  <section class="equipo">
+
+    <!-- 1 · Candela Ciribeni -->
+    <article class="card">
+      <img class="foto" src="fotos/cande.jpg" alt="Foto de Cande Ciribeni">
+      <h3>Cande Ciribeni</h3>
+      <a class="mail" href="mailto:cande.ciribeni@hotmail.com">cande.ciribeni@hotmail.com</a>
+      <p class="bio">Ingeniera Civil (FCEIA-UNR), especializada en Análisis de Datos del Transporte (UNSAM) y estudiante de la Tecnicatura Universitaria en Inteligencia Artificial (FCEIA-UNR). Es docente-investigadora en el Instituto de Estudios de Transporte (UNR) y consultora en <em>Vectio Traffic Engineering</em>, donde aplica SIG y Big Data al análisis de la movilidad.</p>
+    </article>
+
+    <!-- 2 · Nacho Evangelista -->
+    <article class="card">
+      <img class="foto" src="fotos/nacho.jpg" alt="Foto de Nacho Evangelista">
+      <h3>Nacho Evangelista</h3>
+      <a class="mail" href="mailto:nachoeva@fceia.unr.edu.ar">nachoeva@fceia.unr.edu.ar</a>
+      <p class="bio">Ingeniero Electrónico (FCEIA-UNR). Coordinador de la Tecnicatura Universitaria en Inteligencia Artificial de la FCEIA desde su inicio en 2022. Profesor a cargo de Estadística Bayesiana en la Licenciatura en Estadística (FCEyE-UNR). Jefe del Departamento de Física en el Politécnico (UNR). Divulgador de IA en radio y <em>streaming</em>.</p>
+    </article>
+
+    <!-- 3 · Gisela Signorelli -->
+    <article class="card">
+      <img class="foto" src="fotos/gise.jpg" alt="Foto de Gise Signorelli">
+      <h3>Gise Signorelli</h3>
+      <a class="mail" href="mailto:gisela.signorelli@fcpolit.unr.edu.ar">gisela.signorelli@fcpolit.unr.edu.ar</a>
+      <p class="bio">Doctora en Ciencia Política (FCPolit-UNR). Profesora Titular en la FCPolit (UNR) y Profesora Adjunta en la FCEIA (UNR). Investigadora del CIUNR. Su trabajo se orienta a la gobernanza de la IA, su aplicación a la gestión pública y la apropiación crítica de tecnologías emergentes.</p>
+    </article>
+
+    <!-- 4 · Valentina Balverdi (centrada debajo) -->
+    <article class="card">
+      <img class="foto" src="fotos/valen.jpg" alt="Foto de Valen Balverdi">
+      <h3>Valen Balverdi</h3>
+      <a class="mail" href="mailto:valentinabalverdim@gmail.com">valentinabalverdim@gmail.com</a>
+      <p class="bio">Técnica Universitaria en Inteligencia Artificial (FCEIA-UNR). Trabaja como Analista de Innovación en una empresa de agronegocios, donde automatiza procesos con herramientas de Inteligencia Artificial.</p>
+    </article>
+
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    Facultad de Ciencias Exactas, Ingeniería y Agrimensura · Universidad Nacional de Rosario
+  </footer>
+
+</div>
+
+</body>
+</html>
